@@ -1,6 +1,16 @@
 default:
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://localhost:8000
+            goutte: ~
+            selenium2: ~
+        Behat\WebApiExtension:
+            base_url: http://behat-api.test/
     suites:
-        functional:
-            contexts: [ FunctionalFeatureContext ]
-        integration:
-            contexts: [ IntegrationFeatureContext ]
+#        functional:
+#            contexts: [ FunctionalFeatureContext ]
+#        integration:
+#            contexts: [ IntegrationFeatureContext ]
+        api:
+            paths: [ %paths.base%/features/api ]
+            contexts: [ ApiFeatureContext ]
